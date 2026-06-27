@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ExternalLink, X } from "lucide-react";
 import { GitHubIcon } from "@/components/ui/BrandIcons";
+import { useTilt } from "@/hooks/useTilt";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,6 +23,51 @@ const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
 };
+
+function ProjectCard({ project, onSelect }: { project: typeof projects[number]; onSelect: () => void }) {
+  const { ref, handleMouseMove, handleMouseLeave } = useTilt(6);
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      layoutId={project.id}
+      onClick={onSelect}
+      className="cursor-pointer"
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transition: "transform 0.15s ease-out" }}
+    >
+      <GlassCard className="group h-full overflow-hidden p-0">
+        <div className="aspect-video w-full overflow-hidden bg-muted">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={project.image}
+            alt={project.title}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div className="space-y-3 p-5">
+          <h3 className="font-semibold group-hover:text-accent transition-colors">
+            {project.title}
+          </h3>
+          <p className="line-clamp-2 text-sm leading-relaxed text-muted">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {project.tech.slice(0, 3).map((t) => (
+              <Badge key={t}>{t}</Badge>
+            ))}
+            {project.tech.length > 3 && (
+              <Badge>+{project.tech.length - 3}</Badge>
+            )}
+          </div>
+        </div>
+      </GlassCard>
+    </motion.div>
+  );
+}
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
@@ -62,41 +108,7 @@ export function Projects() {
           className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              layoutId={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="cursor-pointer"
-            >
-              <GlassCard className="group h-full overflow-hidden p-0">
-                <div className="aspect-video w-full overflow-hidden bg-muted">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="space-y-3 p-5">
-                  <h3 className="font-semibold group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="line-clamp-2 text-sm leading-relaxed text-muted">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tech.slice(0, 3).map((t) => (
-                      <Badge key={t}>{t}</Badge>
-                    ))}
-                    {project.tech.length > 3 && (
-                      <Badge>+{project.tech.length - 3}</Badge>
-                    )}
-                  </div>
-                </div>
-              </GlassCard>
-            </motion.div>
+            <ProjectCard key={project.id} project={project} onSelect={() => setSelectedProject(project)} />
           ))}
         </motion.div>
       </div>
