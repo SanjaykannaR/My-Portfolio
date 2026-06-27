@@ -35,9 +35,9 @@ describe("Contact API - Validation", () => {
     expect(res.status).toBe(400);
   });
 
-  it("returns 400 for too short message", async () => {
+  it("returns 400 for empty message", async () => {
     const res = await POST(
-      makeRequest({ name: "John", email: "test@test.com", message: "Hi" })
+      makeRequest({ name: "John", email: "test@test.com", message: "" })
     );
     expect(res.status).toBe(400);
   });
@@ -53,7 +53,7 @@ describe("Contact API - Validation", () => {
     expect(res.status).toBe(400);
   });
 
-  it("returns 200 for valid input (no Resend key configured)", async () => {
+  it("returns 501 when Resend key is not configured", async () => {
     const res = await POST(
       makeRequest({
         name: "John Doe",
@@ -61,7 +61,10 @@ describe("Contact API - Validation", () => {
         message: "Hello, I'd like to discuss a project opportunity with you.",
       })
     );
-    expect(res.status).toBe(200);
+    expect(res.status).toBe(501);
+    const data = await res.json();
+    expect(data.error).toBe("not_configured");
+    expect(data.email).toBeDefined();
   });
 
   it("returns 500 on unexpected error", async () => {

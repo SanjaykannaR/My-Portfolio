@@ -51,6 +51,13 @@ export function Contact() {
         }),
       });
 
+      if (res.status === 501) {
+        const data = await res.json();
+        setStatus("error");
+        setErrorMsg(`Send me an email directly at ${data.email}`);
+        return;
+      }
+
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error || "Something went wrong");

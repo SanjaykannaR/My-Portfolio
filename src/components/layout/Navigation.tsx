@@ -58,7 +58,7 @@ export function Navigation() {
             href="#hero"
             className="text-lg font-bold tracking-tight"
           >
-            Portfolio
+            MY Portfolio
           </a>
 
           <div className="hidden items-center gap-1 md:flex">
