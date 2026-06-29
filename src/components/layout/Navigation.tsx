@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
@@ -18,15 +18,10 @@ const navItems = [
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const lastScroll = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      setHidden(currentScroll > lastScroll.current && currentScroll > 100);
-      lastScroll.current = currentScroll;
-
       const sections = navItems.map((item) => item.href.slice(1));
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
@@ -43,17 +38,12 @@ export function Navigation() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: 0 }}
-        animate={{ y: hidden ? -100 : 0 }}
-        transition={{ duration: 0.3 }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50",
-          "border-b border-border/50",
-          "bg-background/80 backdrop-blur-xl"
-        )}
-      >
-        <nav className="mx-auto flex h-16 max-w-2560px items-center justify-between px-6 py-6">
+      <div className="fixed top-0 left-0 right-0 z-50">
+      <header className={cn(
+        "border-b border-border/50",
+        "bg-background/80 backdrop-blur-xl"
+      )}>
+        <nav className="mx-auto flex h-16 max-w-2560px items-center justify-between px-6 py-6 ">
           <a
             href="#hero"
             className="text-lg font-bold tracking-tight"
@@ -96,7 +86,8 @@ export function Navigation() {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
+      </div>
 
       <AnimatePresence>
         {mobileOpen && (

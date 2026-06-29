@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Full-Stack Developer",
+  title: "Sanjay Kanna Portfolio | Full-Stack Developer",
   description:
     "Full-stack developer specializing in modern web applications with React, Next.js, and Node.js.",
   openGraph: {

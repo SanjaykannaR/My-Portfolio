@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ExternalLink } from "lucide-react";
+import { HeroBackground } from "./HeroBackground";
 import { personalInfo } from "@/data/portfolio";
 import { buttonVariants } from "@/components/ui/Button";
 
@@ -51,14 +52,8 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
     >
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-background" />
-      </motion.div>
+      <HeroBackground />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-background/40" />
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <motion.div
