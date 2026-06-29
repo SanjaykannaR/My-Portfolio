@@ -53,12 +53,12 @@ export function Navigation() {
           "bg-background/80 backdrop-blur-xl"
         )}
       >
-        <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
+        <nav className="mx-auto flex h-16 max-w-2560px items-center justify-between px-6 py-6">
           <a
             href="#hero"
             className="text-lg font-bold tracking-tight"
           >
-            MY Portfolio
+            Sanjay Kanna Portfolio
           </a>
 
           <div className="hidden items-center gap-1 md:flex">
