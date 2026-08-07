@@ -7,9 +7,9 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { Code2, Rocket, Users, Zap } from "lucide-react";
 
 const stats = [
-  { icon: Code2, value: "5+", label: "Years Experience" },
-  { icon: Rocket, value: "20+", label: "Projects Delivered" },
-  { icon: Users, value: "15+", label: "Happy Clients" },
+  { icon: Code2, value: "1", label: "Years Experience" },
+  { icon: Rocket, value: "2", label: "Projects Delivered" },
+  { icon: Users, value: "1", label: "Happy Clients" },
   { icon: Zap, value: "10+", label: "Technologies" },
 ];
 

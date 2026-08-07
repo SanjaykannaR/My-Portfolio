@@ -9,7 +9,7 @@ import { Code2, Server, Wrench, Globe } from "lucide-react";
 const iconMap: Record<string, React.ReactNode> = {
   Frontend: <Globe className="h-5 w-5" />,
   Backend: <Server className="h-5 w-5" />,
-  "DevOps & Tools": <Wrench className="h-5 w-5" />,
+  "Design & Tools": <Wrench className="h-5 w-5" />,
   Languages: <Code2 className="h-5 w-5" />,
 };
 

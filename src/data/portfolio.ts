@@ -78,46 +78,26 @@ export const projects: Project[] = [
     liveUrl: "https://arise-getfit.vercel.app/",
     githubUrl: "https://github.com/SanjaykannaR/arise-frontend", 
   },
-  // {
-  //   id: "project-3",
-  //   title: "AI Content Generator",
-  //   description:
-  //     "AI-powered content generation tool with fine-tuned models, rich text editor, and team collaboration features.",
-  //   tech: ["Next.js", "OpenAI", "Python", "FastAPI", "Docker"],
-  //   image: "/projects/project-3.jpg",
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/yourusername/project",
-  // },
-  // {
-  //   id: "project-4",
-  //   title: "Real-Time Chat App",
-  //   description:
-  //     "Scalable messaging platform with end-to-end encryption, file sharing, and group chat capabilities.",
-  //   tech: ["React", "Node.js", "WebSocket", "Redis", "AWS"],
-  //   image: "/projects/project-4.jpg",
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/yourusername/project",
-  // },
-  // {
-  //   id: "project-5",
-  //   title: "DevOps Pipeline Tool",
-  //   description:
-  //     "CI/CD pipeline visualizer and management tool with GitHub integration and deployment automation.",
-  //   tech: ["Next.js", "TypeScript", "Docker", "Kubernetes", "Terraform"],
-  //   image: "/projects/project-5.jpg",
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/yourusername/project",
-  // },
-  // {
-  //   id: "project-6",
-  //   title: "Social Media Analytics",
-  //   description:
-  //     "Cross-platform social media analytics with sentiment analysis, scheduling, and performance reports.",
-  //   tech: ["React", "GraphQL", "PostgreSQL", "Redis", "Tailwind"],
-  //   image: "/projects/project-6.jpg",
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/yourusername/project",
-  // },
+  {
+    id: "project-3",
+    title: "Puducherry RTO Redesign",
+    description:
+      "A comprehensive digital transformation of the Office of the Transport Commissioner, Puducherry — citizen portal for vehicle registration, driving licenses, and challan lookup, with an AI-proctored learner license exam (BlazeFace), a Gemini-powered multi-language chatbot, and a full admin panel. Three independently deployed services: Next.js 16 frontend, Express + Prisma API, and a FastAPI AI service.",
+    tech: ["Next.js", "TypeScript", "Express.js", "Prisma", "Python", "FastAPI", "TensorFlow Lite", "Google Gemini"],
+    image: "/RTO.png",
+    liveUrl: "https://puducherry-rto-redesign.vercel.app",
+    githubUrl: "https://github.com/SanjaykannaR/Puducherry-RTO-Redesign",
+  },
+  {
+    id: "project-4",
+    title: "AutoMart",
+    description:
+      "Auto parts delivery platform — order any car/bike spare part, delivered in 30 minutes. A full-stack microservices monorepo with 8 backend services and a Next.js dark glassmorphism UI. Features fuzzy text search with Trie autocomplete, image search via CLIP embeddings, voice search via the Web Speech API, event-driven architecture over Redis pub/sub, and an MCP server for AI agent integration.",
+    tech: ["Next.js", "React", "TypeScript", "Express.js", "Prisma", "Redis", "Docker", "Fuse.js"],
+    image: "/Automart.png",
+    liveUrl: "https://auto-mart-web.vercel.app/",
+    githubUrl: "https://github.com/SanjaykannaR/AutoMart",
+  },
 ];
 
 export const skillCategories: SkillCategory[] = [
