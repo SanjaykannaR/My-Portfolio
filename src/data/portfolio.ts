@@ -124,7 +124,7 @@ export const experience: Experience[] = [
     id: "exp-1",
     company: "Agilemania Pvt Ltd",
     role: "Senior Graphic Designer",
-    period: "Jan 2021 - Present",
+    period: "Jan 2021 - November 2026",
     description:
       "Spearheaded corporate branding, high-fidelity UI layouts, and cross-functional designs that enhanced user engagement and brand consistency.",
     highlights: [
